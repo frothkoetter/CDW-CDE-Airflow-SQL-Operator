@@ -150,7 +150,9 @@ FROM (
 ) AS check_columns;
 ```
 
-The result of the INFO - Record: [('iata', 'null_check', 0), ('iata', 'distinct_check', 3376)]
+The result in the logfile  
+
+INFO - Record: [('iata', 'null_check', 0), ('iata', 'distinct_check', 3376)]
 
 If one check fails the pipeline stop the Airflow dag.
 
@@ -331,6 +333,7 @@ cursor_sample = SQLExecuteQueryOperator(
 Upon executing the DAG task, the SQL query will retrieve the first 10 rows from the default.airports table. The fetched rows will be processed by the custom fetch handler function (process_query_results), and the extracted data will be logged or further processed based on your requirements.
 select * from default.airports limit 10;, parameters: None
 
+```
 INFO - Row Data: ('00M', '"Thigpen "', 'Bay Springs', '', 'USA', 31.95376472, -89.23450472)
 INFO - Row Data: ('00R', 'Livingston Municipal', 'Livingston', '', 'USA', 30.68586111, -95.01792778)
 INFO - Row Data: ('00V', 'Meadow Lake', 'Colorado Springs', '', 'USA', 38.94574889, -104.5698933)
@@ -341,7 +344,7 @@ INFO - Row Data: ('02A', '"Gragg-Wade "', 'Clanton', '', 'USA', 32.85048667, -86
 INFO - Row Data: ('02C', 'Capitol', 'Brookfield', '', 'USA', 43.08751, -88.17786917)
 INFO - Row Data: ('02G', 'Columbiana County', 'East Liverpool', '', 'USA', 40.67331278, -80.64140639)
 INFO - Row Data: ('03D', 'Memphis Memorial', 'Memphis', '', 'USA', 40.44725889, -92.22696056)
-
+```
 
 ## Enhancing Data Extraction Capabilities
 
