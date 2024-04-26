@@ -13,35 +13,26 @@ This integration enhances the flexibility and efficiency of data workflows withi
 
 ![](images/airflow_graph.png)
 
-## Lab 0 - Clone the github
+## Lab 0 - Clone the github, CDE cli install
 
 In your home directory
 
 ```bash
-git clone
+git clone https://github.com/frothkoetter/CDW-CDE-Airflow-SQL-Operator.git
+cd /path/to/CDW-CDE-Airflow-SQL-Operator
 ```
 
------
-## Lab 1 - Create Database
+## Lab 1 - CDE CLI installation and configuration
 
-Navigate to Data Warehouse, then Virtual Warehouse and open the HUE SQL Authoring tool.
+Download software and move into the working directory
 
-Create new database for your user to be used, or use one that is already created for you.
+![](images/cde-cli-download.png)
 
-```sql
--- Change *** of database name
-CREATE DATABASE DB_USER0**;
-
-USE DB_USER0**;
+```bash
+chmod +x /path/to/cde
 ```
-Your can check your current database
-```sql
-select current_database();
-```
------
-## Lab 2 - CDE CLI configuration
 
-Copy the Jobs API URL from the CDE Virtual Cluster page
+Navigate to CDE, Virtual Cluster copy the Jobs API URL from the CDE Virtual Cluster page
 
 ![](images/jobs_api_url.png)
 
@@ -64,15 +55,26 @@ vcluster-endpoint: https://8v4rxpj7.cde-dvtxl9n8.se-sandb.a465-9q4k.cloudera.sit
 Save the file and return to the github
 
 
-Results
+-----
+## Lab 2 - Create Database
 
+Navigate to Data Warehouse, then Virtual Warehouse and open the HUE SQL Authoring tool.
 
-|
+Create new database for your user to be used, or use one that is already created for you.
 
-Results
+```sql
+-- Change *** of database name
+CREATE DATABASE DB_USER0**;
 
-|DESCRIPTION\_CRYPT|DESCRIPTIION|
-| :- | :- |
-|RhTzKHhSBr7RD3pGudQG3g==|	AEROSPATIALE|
-|S0w4E8xFm3q1FaeKG99NAaNG7uqU2XAsD2A94p79NYk=|	AEROSPATIALE/ALENIA|
-|HIL21crGdEnSYvLIqiKzNQ==|	AIRBUS|
+USE DB_USER0**;
+```
+Your can check your current database
+```sql
+select current_database();
+```
+-----
+## Lab 3 - Check Connection configuration
+
+Navigate to CDE on the cluster configuration and open Airflow
+
+![](images/airflow_connection.png)
