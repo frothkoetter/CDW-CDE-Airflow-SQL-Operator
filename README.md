@@ -73,11 +73,77 @@ Your can check your current database
 select current_database();
 ```
 -----
-## Lab 3 - Check Connection configuration
+## Lab 3 - View CDW Connection configuration
 
-Navigate to CDE on the cluster configuration and open Airflow
+Navigate to CDE on the cluster configuration and open Airflow,
+
+![](images/airflow_navi_01.png)
+
+navigate to connection
+
+![](images/airflow_navi_02.png)
+
+Review the connection details
 
 ![](images/airflow_connection.png)
+
+## Lab 4 - Change the USERID in CDE CLI scripts
+
+open the shell script and change the 'USER=user001' to your user ID
+
+```bash
+# Create a resource
+USER=user001
+
+# Variables for Airflow
+RESOURCE=demo-dag-$USER
+JOB=demo-job-$USER
+
+./cde resource delete --name $RESOURCE
+./cde resource create --name $RESOURCE
+./cde resource upload --name $RESOURCE --local-path demo-dag.py
+./cde resource describe --name $RESOURCE
+
+
+# Create Job of “airflow” type and reference the DAG
+./cde job delete --name $JOB
+./cde job create --name $JOB --type airflow --dag-file demo-dag.py  --mount-1-resource $RESOURCE
+
+#Trigger Airflow job to run
+./cde job run --name $JOB
+```
+
+
+## Lab 5 - Upload and start the Airflow DAG
+
+
+```bash
+/create-dag.sh
+API User Password:
+     6.6KB/6.6KB 100% [==============================================] demo-dag.py
+{
+  "name": "demo-dag-user001",
+  "type": "files",
+  "status": "ready",
+  "signature": "a1f49a22feed4199ca2f0e5da9ee7e26864ef6ba",
+  "created": "2024-04-26T12:27:57Z",
+  "modified": "2024-04-26T12:27:58Z",
+  "retentionPolicy": "keep_indefinitely",
+  "files": [
+    {
+      "path": "demo-dag.py",
+      "signature": "1e379668c7480d24bdec2148256f6f66d833cdac",
+      "sizeBytes": 6562,
+      "created": "2024-04-26T12:27:58Z",
+      "modified": "2024-04-26T12:27:58Z"
+    }
+  ]
+}
+Error: delete job failed: could not get job from storage: job not found
+{
+  "id": 49
+}
+```
 
 
 
