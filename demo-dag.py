@@ -29,7 +29,7 @@ default_args = {
 }
 
 dag = DAG(
-    'demo-dag',
+    'demo-dag-user001',
     default_args=default_args, 
     schedule_interval='@daily', 
     catchup=False, 
@@ -40,7 +40,7 @@ dag = DAG(
 #
 _CONN_ID="cdw-impala"
 _TABLE_NAME="airports"
-_DB_NAME="airflow"
+_DB_NAME="db_user001"
 
 
 sql_check_iata_length = """
