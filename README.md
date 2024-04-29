@@ -440,3 +440,7 @@ By harnessing the power of Apache Airflow's SQL operators within Cloudera Data E
 
 Customize SQL queries, leverage conditional logic, and integrate data quality checks seamlessly into your workflows to maintain data integrity and enhance decision-making processes.
 Apache Airflow's SQL operators provide a robust foundation for building scalable and reliable data pipelines within Cloudera's ecosystem. Embrace these tools to harness the power of SQL for data validation, extraction, and workflow orchestration, enabling data-driven insights and operational excellence.
+
+## Limnitation
+
+Currently we support CDW Impala virtual warehouses (configured without Unified Analytics).
