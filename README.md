@@ -87,7 +87,7 @@ Review the connection details
 
 ![](images/airflow_connection.png)
 
-## Lab 4 - Change the USERID in CDE CLI scripts
+## Lab 4 - Change the USER in CDE CLI scripts
 
 open the shell script and change the 'USER=user001' to your user ID
 
@@ -443,4 +443,4 @@ Apache Airflow's SQL operators provide a robust foundation for building scalable
 
 ## Limitation
 
-Currently we support CDW Impala virtual warehouses (configured without Unified Analytics).
+Currently support only CDW Impala virtual warehouses (configured without Unified Analytics).
